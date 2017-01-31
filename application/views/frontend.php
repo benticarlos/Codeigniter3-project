@@ -1,2 +1,9 @@
-    <h1>Bienvenidos a CodeIgniter3 Project</h1>
-    <p><?php echo base_url(); ?></p>
+<?php	
+defined('BASEPATH') OR exit('No direct script access allowed'); 
+
+$this->load->view('templates/frontend/head');
+$this->load->view('templates/frontend/header');
+$this->load->view('frontend/'.$content);
+$this->load->view('templates/frontend/footer');
+
+?>

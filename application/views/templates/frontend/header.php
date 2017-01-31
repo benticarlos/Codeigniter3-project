@@ -1,3 +1,5 @@
+<?php	defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<!-- begin here -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->

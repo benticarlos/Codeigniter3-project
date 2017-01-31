@@ -10,7 +10,10 @@
 		}
 
 		public function index() {
-			$this->load->view('frontend');
+			// $data = new stdClass();
+			$data["title"] = "CI3 Project | Index";
+			$data["content"] = "index/index";
+			$this->load->view('frontend', $data);
 		}
 	}
 ?>
