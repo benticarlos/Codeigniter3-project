@@ -22,16 +22,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function signin() {
 			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|max_length[150]');
 			$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]');
-			if ($this->form_validation->run() == FALSE)
-                {
+			if ($this->form_validation->run() == FALSE) {
                         $this->login();
                 }
-                else
-                {
+                else {
                        $email = $this->input->post('email');
                        $pass = $this->input->post('password');
                        echo "<pre>";
-                       print_r($email)
+                       print_r($email);
                 }
 		}
 	}
