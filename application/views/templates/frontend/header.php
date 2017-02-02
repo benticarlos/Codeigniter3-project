@@ -10,13 +10,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="<?php echo base_url(); ?>">CI3-Project</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link <span class="sr-only">(current)</span></a></li>
         <li><a href="#">Link</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -38,7 +38,10 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <?php if(isset($_SESSION)): ?>
+        <?php 
+          // if(isset($_SESSION)): 
+          if(!empty($_SESSION['is_logged_in'])):
+        ?>
         <li><a href="#">Link</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -52,7 +55,7 @@
         </li>
         <?php else: ?>
           <li><a href="#">Registrarse</a></li>
-          <li><a href="<?php echo base_url(); ?>login">Login</a></li>
+          <li <?php if(isset($active) && $active == 'login'){ echo 'class="active"';} ?>><a href="<?php echo base_url(); ?>login">Login</a></li>
         <?php endif; ?>
       </ul>
     </div><!-- /.navbar-collapse -->
