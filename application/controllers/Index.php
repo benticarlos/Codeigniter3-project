@@ -6,7 +6,8 @@
 		public function __construct()
 		{
 			parent::__construct();
-			# code...
+			$this->load->library('session');
+			$this->load->model('Auth_model');
 		}
 
 		public function index() {

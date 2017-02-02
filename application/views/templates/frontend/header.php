@@ -44,13 +44,13 @@
         ?>
         <li><a href="#">Link</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bienvenido <?php echo $_SESSION['user_mail']; ?> <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><a href="<?php echo base_url(); ?>logout">Logout</a></li>
           </ul>
         </li>
         <?php else: ?>
@@ -61,3 +61,13 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<div class="container">
+  <?php
+  if($this->session->flashdata('error_message') != NULL) {
+    echo '<div class="alert alert-danger" role="alert">' . $this->session->flashdata('error_message') . '</div>';
+  }
+  if($this->session->flashdata('success_message') != NULL) {
+    echo '<div class="alert alert-success" role="alert">' . $this->session->flashdata('success_message') . '</div>';
+  }
+?>
+</div>
