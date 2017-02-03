@@ -11,7 +11,7 @@ class Auth_model extends CI_Model
 	}
 
 	public function getUser($email) {
-		$this->db->where('user_email', $email);
+		$this->db->where('users_email', $email);
 		$query = $this->db->get('users');
 		return $query->row();
 	}

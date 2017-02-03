@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                        		$this->session->set_flashdata("error_message", "User Data are Incorrects");
                        		redirect(base_url().'login');
                        }
-                       $_SESSION['userid'] = $user->idu;
+                       $_SESSION['userid'] = $user->id;
                        $_SESSION['user_mail'] = $user->user_mail;
                        $_SESSION['is_logged_in'] = TRUE;
                        $this->session->set_flashdata("success_message", "Welcome " . $_SESSION['user_mail']);
