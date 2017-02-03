@@ -20,14 +20,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		public function signin() {
-			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|max_length[150]');
-			$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]');
-			if ($this->form_validation->run() == FALSE) {
+			// $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|max_length[150]');
+			// $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]');
+			if ($this->form_validation->run('valid_login') == FALSE) {
                         $this->login();
                 }
                 else {
-                       $email = $this->input->post('email');
-                       $pass = $this->input->post('password');
+                       $email = $this->security->xss_clean(addcslashes(strip_tags($this->input->post('email', TRUE))));
+                       $pass = $this->security->xss_clean(addcslashes(strip_tags($this->input->post('password', TRUE))));
                        $user = $this->Auth_model->getUser($email);
                        if(!$user) {
                        		$this->session->set_flashdata("error_message", "User Data are Incorrects");
@@ -48,6 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			session_destroy();
 			redirect();
 		}
+
+		public function 
 	}
 
-?>
