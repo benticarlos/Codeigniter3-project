@@ -88,7 +88,7 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 if (isset($_SERVER['HTTP_HOST'])) {
 	$base_url = 'http'
 		. '://' . $_SERVER['HTTP_HOST']
-		. str_replace(basename($_SERVER), '', $_SERVER['SCRIPT_NAME']);
+		. str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);
 
 	//Base URI (It's different to base URL!)
 	$base_uri = parse_url($base_url, PHP_URL_PATH);
@@ -99,7 +99,7 @@ if (isset($_SERVER['HTTP_HOST'])) {
 }
 else {
 	$base_url = 'http://localhost/';
-	$base_uri = '/'
+	$base_uri = '/';
 }
 
 // Define these values to be used later on
