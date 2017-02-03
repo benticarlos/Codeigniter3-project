@@ -57,3 +57,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login'] = "auth/login";
 $route['signin'] = "auth/signin";
 $route['logout'] = "auth/logout";
+
+// Contact
+$route['contact'] = "index/contact";
+$route['sendmail'] = "index/sendmail";
