@@ -83,3 +83,32 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+/////////////////////////////
+if (isset($_SERVER['HTTP_HOST'])) {
+	$base_url = 'http'
+		. '://' . $_SERVER['HTTP_HOST']
+		. str_replace(basename($_SERVER), '', $_SERVER['SCRIPT_NAME']);
+
+	//Base URI (It's different to base URL!)
+	$base_uri = parse_url($base_url, PHP_URL_PATH);
+	if (substr($base_uri, 0, 1) != '/') 
+		$base_uri = '/' . $base_uri;
+	if (substr($base_uri, -1, 1) != '/')
+		$base_uri .= '/';	
+}
+else {
+	$base_url = 'http://localhost/';
+	$base_uri = '/'
+}
+
+// Define these values to be used later on
+define('BASE_URL', $base_url);
+define('BASE_URI', $base_uri);
+define('APPPATH_URI', BASE_URI . APPPATH);
+
+define('sitekey', '6Ls3fE3t5sd4F42feTG543EFCfgd6AAe543s3g54');
+define('secret', '6LcSNgUTAAAHTes433rg54g56h53ferg453MSD34w');
+
+// We dont nedd these variables any more
+unset($base_uri, $base_url);
